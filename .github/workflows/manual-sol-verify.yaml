@@ -1,0 +1,29 @@
+name: Manual sol verify
+# Submits `TOFUTokenDecimals`' source to the explorers for the singleton that is
+# ALREADY on chain. `Manual sol artifacts` cannot do this: it submits source
+# only for what its own run broadcast, and the Zoltu deploy is idempotent, so
+# every run after the first logs "Code already exists at expected address,
+# skipping deployment" on every network, has no transaction to verify, and goes
+# green having verified nothing. The singleton now has code on all seven
+# networks, so that is every network, forever. This is the only path left.
+#
+# Never broadcasts and takes no deploy key.
+on:
+  workflow_dispatch:
+jobs:
+  verify:
+    uses: rainlanguage/rainix/.github/workflows/rainix-manual-sol-verify.yaml@main
+    with:
+      contract: src/concrete/TOFUTokenDecimals.sol:TOFUTokenDecimals
+      # `DEPLOYED_ADDRESS` in `src/generated/candidate/TOFUTokenDecimals.sol`,
+      # which is also `LibTOFUTokenDecimals.TOFU_DECIMALS_DEPLOYMENT`. One
+      # value covers every network: the deploy is CREATE2 via Zoltu, so the
+      # address is the same everywhere.
+      address: '0x200e12D10bb0c5E4a17e7018f0F1161919bb9389'
+      # FOUNDRY's chain names, one per `[rpc_endpoints]` alias, NOT the aliases
+      # themselves — `forge verify-contract --chain` rejects `ethereum`,
+      # `hyperevm` and `base_sepolia` outright, and their chains are named
+      # `mainnet`, `hyperliquid` and `base-sepolia`. The `[etherscan]` entry
+      # each one resolves to is matched on chain id, not on this name.
+      networks: arbitrum base base-sepolia mainnet flare hyperliquid polygon
+    secrets: inherit
