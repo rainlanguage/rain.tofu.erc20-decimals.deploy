@@ -1,0 +1,19 @@
+name: Package Release
+# Deploy repo: released by a manual `sol-v*` tag via rainix-tag-release.
+on:
+  push:
+    tags:
+      - sol-v*
+jobs:
+  release:
+    # `rainix-tag-release`'s `release` job declares `contents: write` (the
+    # GitHub release + tag), and a called workflow can only narrow the token it
+    # is handed, never widen it. Declared here rather than left to the
+    # repository default, so the run cannot end in `startup_failure` on a repo
+    # whose default is `read` (rain.tofu.erc20-decimals#28).
+    permissions:
+      contents: write
+    uses: rainlanguage/rainix/.github/workflows/rainix-tag-release.yaml@main
+    with:
+      soldeer-package: rain-tofu-erc20-decimals-deploy
+    secrets: inherit

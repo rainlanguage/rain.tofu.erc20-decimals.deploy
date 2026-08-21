@@ -1,0 +1,41 @@
+[[dependencies]]
+name = "forge-std"
+version = "1.16.2"
+url = "https://soldeer-revisions.s3.amazonaws.com/forge-std/1_16_2_03-07-2026_07:37:45_forge-std-1.16.zip"
+checksum = "405dccc9d60d753f6abc412b4adf0359f4390f65dbadbbb277a12b4946ed8969"
+integrity = "5fb4325b60d7d4194bd0481e2f94398cf1d9c6561dd12a66fb2748ef4a68205f"
+
+[[dependencies]]
+name = "rain-deploy"
+version = "0.1.7"
+url = "https://soldeer-revisions.s3.amazonaws.com/rain-deploy/0_1_7_19-08-2026_05:57:12_rain.zip"
+checksum = "d0e868184ad16fc6abb704bb1dddab57ebf2beb042529690e030568f5c81a9b3"
+integrity = "e51da6f2b3a0f427a0aac5d7714bed2027f5cf0f39b31f0692e9623ceeaa47f2"
+
+[[dependencies]]
+name = "rain-extrospection"
+version = "0.1.13"
+url = "https://soldeer-revisions.s3.amazonaws.com/rain-extrospection/0_1_13_20-08-2026_09:08:24_rain.zip"
+checksum = "8cf77283049994469090ceecee5944c9a580a624463fbae1861d637ba35515e5"
+integrity = "5727c7553eb165eb66ac529aa2d9d0d2032bb20824c45acf7b09c82c8c546141"
+
+[[dependencies]]
+name = "rain-sol-codegen"
+version = "0.1.36"
+url = "https://soldeer-revisions.s3.amazonaws.com/rain-sol-codegen/0_1_36_18-08-2026_09:20:33_rain.sol.zip"
+checksum = "b5d101d46941a95fee441224e101004139814ae9afa2793138874bd7e93991ff"
+integrity = "164e2655ac8b66bcf52c799421706d3dfaab987addaaeadd74574e70fd2eb6ed"
+
+[[dependencies]]
+name = "rain-solmem"
+version = "0.1.26"
+url = "https://soldeer-revisions.s3.amazonaws.com/rain-solmem/0_1_26_18-08-2026_16:20:17_rain.zip"
+checksum = "291a0acf805b8acd65dfb9e848e6670bde158120bb5b0bcdeeaf17c4084a134c"
+integrity = "54e56c1b10d05df72c1c3dcc8df92b99b9f01cd946363158b077c779ce4d20fa"
+
+[[dependencies]]
+name = "rain-tofu-erc20-decimals"
+version = "0.1.3"
+url = "https://soldeer-revisions.s3.amazonaws.com/rain-tofu-erc20-decimals/0_1_3_21-08-2026_17:27:08_rain.tofu.zip"
+checksum = "c1c31a029570d72291205d683b30db5b785bd76d6e4aa2a0d44bb5a64b1ac385"
+integrity = "8c718ec201a9e085575947eb8359bf964fc9c761f7eeb34b5090eff224e1c44a"

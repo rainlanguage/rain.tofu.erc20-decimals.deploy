@@ -1,0 +1,8 @@
+name: Git is clean
+# Currency-checks the committed `src/generated/` record by re-running
+# `script/Build.sol` and failing on any diff.
+on: [push]
+jobs:
+  copy-artifacts:
+    uses: rainlanguage/rainix/.github/workflows/rainix-copy-artifacts.yaml@main
+    secrets: inherit

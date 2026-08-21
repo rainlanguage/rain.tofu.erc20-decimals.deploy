@@ -1,0 +1,4 @@
+{
+    "detectors_to_exclude": "assembly-usage,solc-version,pragma,unindexed-event-address,unused-imports,different-pragma-directives-are-used",
+    "filter_paths": "dependencies,src/abstract/(TOFUTokenDecimalsDeploySuites|RainDeploySuitesBase)\\.sol"
+}
