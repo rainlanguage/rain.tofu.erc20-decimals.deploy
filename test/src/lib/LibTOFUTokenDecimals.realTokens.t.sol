@@ -20,9 +20,18 @@ contract LibTOFUTokenDecimalsRealTokensTest is Test {
     /// Arbitrum DAI — 18 decimals.
     address internal constant DAI = 0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1;
 
-    /// Pinned for fork reproducibility. Any recent Arbitrum block where all
-    /// four contracts are deployed and stable works; bump if the RPC stops
-    /// serving this block.
+    /// Pinned *below* the block at which `TOFUTokenDecimals` was deployed to
+    /// Arbitrum, and it has to stay below it. The constructor Zoltu-deploys the
+    /// singleton at its deterministic address, and that only succeeds while the
+    /// address is empty. The singleton is live on Arbitrum today — the library
+    /// repo's `LibTOFUTokenDecimals.prod.t.sol` forks the chain tip and asserts
+    /// exactly that — so at any block after the deployment `CREATE2` returns
+    /// zero, `deployZoltu` reverts `DeployFailed`, and every test in this file
+    /// fails in the constructor. Do NOT bump this toward the tip. Etching the
+    /// Zoltu factory does not rescue it either: the collision is at the
+    /// singleton's address, not the factory's. If the RPC stops serving this
+    /// block, move to another block that is still before the deployment and at
+    /// which WETH, USDC, WBTC and DAI are all live.
     uint256 internal constant FORK_BLOCK_NUMBER = 280_000_000;
 
     constructor() {
