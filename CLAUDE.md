@@ -52,5 +52,11 @@ is not recoverable by redeploying.
 - The on-chain deploy is a human-dispatched `Manual sol artifacts` run
   (`workflow_dispatch`), done **before** tagging — never on merge, never part of
   the release workflow, and it is what actually broadcasts.
+- Explorer verification is `Manual sol verify`, not `Manual sol artifacts`.
+  Re-dispatching the deploy to repair a failed verification verifies nothing and
+  goes green doing it: `--verify` submits only what that run broadcast, and a
+  Zoltu deploy onto a network that already has the singleton broadcasts nothing.
+  `Manual sol verify` takes FOUNDRY chain names (`mainnet`, `hyperliquid`,
+  `base-sepolia`), which are not the `[rpc_endpoints]` aliases.
 - A manual `sol-v<version>` tag is the sole release trigger. The release
   mechanics live in rainix's `rainix-tag-release` reusable, not here.

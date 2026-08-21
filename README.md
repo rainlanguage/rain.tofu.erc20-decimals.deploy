@@ -43,6 +43,14 @@ tagging: the `Manual sol artifacts` workflow runs `script/Deploy.sol` for the
 `tofu-token-decimals` suite. Tagging then runs `rainix-tag-release`, which never
 broadcasts a deploy itself; its mechanics live in rainix.
 
+Explorer verification is its own human-dispatched workflow, `Manual sol verify`.
+`Manual sol artifacts` submits source only for what its own run broadcast, and
+the Zoltu deploy is idempotent, so once the singleton has code on a network that
+run broadcasts nothing there and verifies nothing there — re-dispatching it
+cannot repair a deploy that landed and then failed verification.
+`Manual sol verify` submits for the address that already has code, on every
+supported network, and is safe to re-run.
+
 Nothing publishes on merge: a release bumps `[external.package].version` and
 freezes the current `src/generated/candidate/` snapshot into a new
 `src/generated/<tag>/` in lockstep.
