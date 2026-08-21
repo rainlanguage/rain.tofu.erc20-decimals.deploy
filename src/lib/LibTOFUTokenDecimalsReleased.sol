@@ -6,6 +6,14 @@ pragma solidity ^0.8.25;
 
 import {DeploySuite} from "../abstract/RainDeploySuitesBase.sol";
 
+import {
+    DEPLOYED_ADDRESS as TOFUTokenDecimals_0_1_0_DEPLOYED_ADDRESS,
+    BYTECODE_HASH as TOFUTokenDecimals_0_1_0_BYTECODE_HASH,
+    CREATION_CODE as TOFUTokenDecimals_0_1_0_CREATION_CODE,
+    RUNTIME_CODE as TOFUTokenDecimals_0_1_0_RUNTIME_CODE,
+    DEPENDENCIES as TOFUTokenDecimals_0_1_0_DEPENDENCIES
+} from "../generated/0_1_0/TOFUTokenDecimals.sol";
+
 /// @title LibTOFUTokenDecimalsReleased
 /// @notice Every frozen release of `TOFUTokenDecimals`: one entry per file in
 /// the append-only `src/generated/<tag>/` record, in tag order.
@@ -26,7 +34,16 @@ library LibTOFUTokenDecimalsReleased {
     /// Every frozen release, in tag order.
     /// @return The released suites.
     function releasedSuites() internal pure returns (DeploySuite[] memory) {
-        DeploySuite[] memory suites = new DeploySuite[](0);
+        DeploySuite[] memory suites = new DeploySuite[](1);
+        suites[0] = DeploySuite({
+            suite: "tofu-token-decimals@0_1_0",
+            creationCode: TOFUTokenDecimals_0_1_0_CREATION_CODE,
+            storedDeployedAddress: TOFUTokenDecimals_0_1_0_DEPLOYED_ADDRESS,
+            storedBytecodeHash: TOFUTokenDecimals_0_1_0_BYTECODE_HASH,
+            storedRuntimeCode: TOFUTokenDecimals_0_1_0_RUNTIME_CODE,
+            artifactPath: "src/concrete/TOFUTokenDecimals.sol:TOFUTokenDecimals",
+            dependencies: abi.decode(TOFUTokenDecimals_0_1_0_DEPENDENCIES, (address[]))
+        });
         return suites;
     }
 }
