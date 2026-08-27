@@ -3,6 +3,6 @@ name: Git is clean
 # `script/Build.sol` and failing on any diff.
 on: [push]
 jobs:
-  copy-artifacts:
+  git-clean:
     uses: rainlanguage/rainix/.github/workflows/rainix-copy-artifacts.yaml@main
     secrets: inherit
