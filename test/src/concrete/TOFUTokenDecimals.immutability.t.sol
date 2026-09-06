@@ -4,12 +4,12 @@ pragma solidity =0.8.25;
 
 import {Test} from "forge-std-1.16.2/src/Test.sol";
 import {TOFUTokenDecimals} from "src/concrete/TOFUTokenDecimals.sol";
-import {LibExtrospectBytecode} from "rain-extrospection-0.1.13/src/lib/LibExtrospectBytecode.sol";
+import {LibExtrospectBytecode} from "rain-extrospection-0.1.14/src/lib/LibExtrospectBytecode.sol";
 import {
     EVM_OP_SELFDESTRUCT,
     EVM_OP_DELEGATECALL,
     EVM_OP_CALLCODE
-} from "rain-extrospection-0.1.13/src/lib/EVMOpcodes.sol";
+} from "rain-extrospection-0.1.14/src/lib/EVMOpcodes.sol";
 
 contract TOFUTokenDecimalsImmutabilityTest is Test {
     /// The deployed bytecode of TOFUTokenDecimals MUST NOT contain any
