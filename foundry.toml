@@ -68,9 +68,9 @@ forge-std = "1.16.2"
 "rain-sol-codegen" = "0.1.36"
 # `LibExtrospectBytecode` / `LibExtrospectMetamorphic` / `EVMOpcodes`, which the
 # bytecode-shape tests read the singleton's runtime code with.
-"rain-extrospection" = "0.1.13"
+"rain-extrospection" = "0.1.14"
 # `LibBytes`, which `LibExtrospectBytecode` resolves through.
-"rain-solmem" = "0.1.26"
+"rain-solmem" = "0.1.28"
 
 [soldeer]
 recursive_deps = false

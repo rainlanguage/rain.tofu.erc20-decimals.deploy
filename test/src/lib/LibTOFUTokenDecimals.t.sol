@@ -5,8 +5,8 @@ pragma solidity =0.8.25;
 import {TOFUTokenDecimals} from "src/concrete/TOFUTokenDecimals.sol";
 import {LibTOFUTokenDecimals} from "rain-tofu-erc20-decimals-0.1.3/src/lib/LibTOFUTokenDecimals.sol";
 import {LibRainDeploy} from "rain-deploy-0.1.7/src/lib/LibRainDeploy.sol";
-import {LibExtrospectMetamorphic} from "rain-extrospection-0.1.13/src/lib/LibExtrospectMetamorphic.sol";
-import {LibExtrospectBytecode} from "rain-extrospection-0.1.13/src/lib/LibExtrospectBytecode.sol";
+import {LibExtrospectMetamorphic} from "rain-extrospection-0.1.14/src/lib/LibExtrospectMetamorphic.sol";
+import {LibExtrospectBytecode} from "rain-extrospection-0.1.14/src/lib/LibExtrospectBytecode.sol";
 import {Test} from "forge-std-1.16.2/src/Test.sol";
 
 /// @title LibTOFUTokenDecimalsTest
