@@ -2,8 +2,13 @@
 // SPDX-FileCopyrightText: Copyright (c) 2020 Rain Open Source Software Ltd
 pragma solidity ^0.8.25;
 
-import {DeployCandidate, DeploySuite, RainDeploySuitesBase} from "./RainDeploySuitesBase.sol";
-import {TOFUTokenDecimals} from "../concrete/TOFUTokenDecimals.sol";
+import {
+    DeployCandidate,
+    DeployDependency,
+    DeployMechanism,
+    DeploySuite,
+    RainDeploySuitesBase
+} from "rain-deploy-0.1.19/src/abstract/RainDeploySuitesBase.sol";
 import {
     CREATION_CODE as TOFU_TOKEN_DECIMALS_CREATION_CODE_CANDIDATE,
     RUNTIME_CODE as TOFU_TOKEN_DECIMALS_RUNTIME_CODE_CANDIDATE
@@ -52,9 +57,11 @@ abstract contract TOFUTokenDecimalsDeploySuites is RainDeploySuitesBase {
                 storedBytecodeHash: LibTOFUTokenDecimalsDeploy.TOFU_TOKEN_DECIMALS_DEPLOYED_CODEHASH,
                 storedRuntimeCode: TOFU_TOKEN_DECIMALS_RUNTIME_CODE_CANDIDATE,
                 artifactPath: "src/concrete/TOFUTokenDecimals.sol:TOFUTokenDecimals",
-                dependencies: new address[](0)
+                dependencies: new DeployDependency[](0),
+                mechanism: DeployMechanism.Zoltu,
+                mechanismData: ""
             }),
-            sourceCreationCode: type(TOFUTokenDecimals).creationCode
+            unanchorableReason: ""
         });
     }
 }

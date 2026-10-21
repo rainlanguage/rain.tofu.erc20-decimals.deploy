@@ -2,10 +2,10 @@
 // SPDX-FileCopyrightText: Copyright (c) 2020 Rain Open Source Software Ltd
 pragma solidity =0.8.25;
 
-import {Test} from "forge-std-1.16.2/src/Test.sol";
+import {Test} from "forge-std-1.17.0/src/Test.sol";
 import {TOFUTokenDecimals} from "src/concrete/TOFUTokenDecimals.sol";
-import {TOFUOutcome, ITOFUTokenDecimals} from "rain-tofu-erc20-decimals-0.1.3/src/interface/ITOFUTokenDecimals.sol";
-import {IERC20} from "forge-std-1.16.2/src/interfaces/IERC20.sol";
+import {TOFUOutcome, ITOFUTokenDecimals} from "rain-tofu-erc20-decimals-0.1.4/src/interface/ITOFUTokenDecimals.sol";
+import {IERC20} from "forge-std-1.17.0/src/interfaces/IERC20.sol";
 
 /// Smoke test for the TOFUTokenDecimals concrete contract's
 /// safeDecimalsForTokenReadOnly. Verifies the pass-through wiring to

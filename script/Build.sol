@@ -2,10 +2,10 @@
 // SPDX-FileCopyrightText: Copyright (c) 2020 Rain Open Source Software Ltd
 pragma solidity =0.8.25;
 
-import {BuildScript} from "rain-deploy-0.1.8/src/abstract/BuildScript.sol";
-import {DeployCandidate} from "../src/abstract/RainDeploySuitesBase.sol";
+import {BuildScript} from "rain-deploy-0.1.19/src/abstract/BuildScript.sol";
+import {DeployCandidate} from "rain-deploy-0.1.19/src/abstract/RainDeploySuitesBase.sol";
 import {TOFUTokenDecimalsDeploySuites} from "../src/abstract/TOFUTokenDecimalsDeploySuites.sol";
-import {LibRainDeploySnapshot} from "rain-deploy-0.1.8/src/lib/LibRainDeploySnapshot.sol";
+import {LibRainDeploySnapshot} from "rain-deploy-0.1.19/src/lib/LibRainDeploySnapshot.sol";
 
 /// One contract's generated files: the rolling snapshot, the alias lib that
 /// re-exports its pins and the released-suites lib emitted from its record.
@@ -16,9 +16,9 @@ struct GeneratedContract {
     /// Prefix for the constants the alias lib exports, e.g.
     /// `TOFU_TOKEN_DECIMALS`.
     string constantPrefix;
-    /// Snapshots are written from its `sourceCreationCode` and
-    /// `snapshot.dependencies`; the released lib takes its suite key and
-    /// artifact path from its `snapshot`.
+    /// Snapshots are written from what its `snapshot.artifactPath` compiles
+    /// to and its `snapshot.dependencies`; the released lib takes its suite key
+    /// and artifact path from its `snapshot`.
     DeployCandidate candidate;
 }
 
@@ -61,23 +61,31 @@ contract Build is BuildScript, TOFUTokenDecimalsDeploySuites {
     /// them.
     function regenerateLibs() internal override {
         GeneratedContract[] memory contracts = generatedContracts();
+        string memory dir = libDir();
         for (uint256 i = 0; i < contracts.length; i++) {
             LibRainDeploySnapshot.writeAliasLib(
-                vm,
-                LibRainDeploySnapshot.LIB_DIR,
-                contracts[i].contractName,
-                contracts[i].constantPrefix,
-                LibRainDeploySnapshot.CANDIDATE
+                vm, dir, contracts[i].contractName, contracts[i].constantPrefix, LibRainDeploySnapshot.CANDIDATE
             );
             LibRainDeploySnapshot.writeReleasedSuitesLib(
-                vm,
-                LibRainDeploySnapshot.LIB_DIR,
-                recordRoot(),
-                contracts[i].contractName,
-                contracts[i].candidate.snapshot
+                vm, dir, recordRoot(), contracts[i].contractName, contracts[i].candidate.snapshot
             );
         }
-        LibRainDeploySnapshot.writeReleasedSuitesAggregate(vm, LibRainDeploySnapshot.LIB_DIR, snapshotContractNames());
+        LibRainDeploySnapshot.writeReleasedSuitesAggregate(vm, dir, snapshotContractNames());
+    }
+
+    /// @inheritdoc BuildScript
+    /// @dev The alias libs, which `regenerateLibs` writes and the base list
+    /// does not name.
+    function buildGeneratedPaths() internal view override returns (string[] memory) {
+        GeneratedContract[] memory contracts = generatedContracts();
+        string memory dir = libDir();
+        string[] memory paths = new string[](contracts.length);
+        for (uint256 i = 0; i < contracts.length; i++) {
+            paths[i] = LibRainDeploySnapshot.pathForLib(
+                dir, LibRainDeploySnapshot.aliasLibraryName(contracts[i].contractName)
+            );
+        }
+        return paths;
     }
 
     /// @inheritdoc BuildScript
@@ -86,9 +94,10 @@ contract Build is BuildScript, TOFUTokenDecimalsDeploySuites {
         for (uint256 i = 0; i < contracts.length; i++) {
             LibRainDeploySnapshot.writeSnapshot(
                 vm,
+                recordRoot(),
                 LibRainDeploySnapshot.CANDIDATE,
                 contracts[i].contractName,
-                contracts[i].candidate.sourceCreationCode,
+                vm.getCode(contracts[i].candidate.snapshot.artifactPath),
                 contracts[i].candidate.snapshot.dependencies
             );
         }
