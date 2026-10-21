@@ -18,7 +18,7 @@ contract TOFUTokenDecimalsDecimalsForTokenReadOnlyTest is Test {
     }
 
     /// Calling with `address(0)` produces `ReadFailure` with zero decimals.
-    function testDecimalsForTokenReadOnlyAddressZero() external {
+    function testDecimalsForTokenReadOnlyAddressZero() external view {
         (TOFUOutcome outcome, uint8 result) = concrete.decimalsForTokenReadOnly(address(0));
         assertEq(uint256(outcome), uint256(TOFUOutcome.ReadFailure));
         assertEq(result, 0);
