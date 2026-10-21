@@ -6,10 +6,10 @@ import {
     ITOFUTokenDecimals,
     TOFUTokenDecimalsResult,
     TOFUOutcome
-} from "rain-tofu-erc20-decimals-0.1.3/src/interface/ITOFUTokenDecimals.sol";
+} from "rain-tofu-erc20-decimals-0.1.4/src/interface/ITOFUTokenDecimals.sol";
 import {
     LibTOFUTokenDecimalsImplementation
-} from "rain-tofu-erc20-decimals-0.1.3/src/lib/LibTOFUTokenDecimalsImplementation.sol";
+} from "rain-tofu-erc20-decimals-0.1.4/src/lib/LibTOFUTokenDecimalsImplementation.sol";
 
 /// @title TOFUTokenDecimals
 /// @notice Minimal implementation of the ITOFUTokenDecimals interface using
