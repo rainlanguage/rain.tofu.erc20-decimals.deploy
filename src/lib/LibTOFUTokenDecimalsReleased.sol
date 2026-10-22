@@ -14,6 +14,14 @@ import {
     DEPENDENCIES as TOFUTokenDecimals_0_1_0_DEPENDENCIES
 } from "../generated/0_1_0/TOFUTokenDecimals.sol";
 
+import {
+    DEPLOYED_ADDRESS as TOFUTokenDecimals_0_1_1_DEPLOYED_ADDRESS,
+    BYTECODE_HASH as TOFUTokenDecimals_0_1_1_BYTECODE_HASH,
+    CREATION_CODE as TOFUTokenDecimals_0_1_1_CREATION_CODE,
+    RUNTIME_CODE as TOFUTokenDecimals_0_1_1_RUNTIME_CODE,
+    DEPENDENCIES as TOFUTokenDecimals_0_1_1_DEPENDENCIES
+} from "../generated/0_1_1/TOFUTokenDecimals.sol";
+
 /// @title LibTOFUTokenDecimalsReleased
 /// @notice Every frozen release of `TOFUTokenDecimals`: one entry per file in
 /// the append-only `src/generated/<tag>/` record, in tag order.
@@ -34,7 +42,7 @@ library LibTOFUTokenDecimalsReleased {
     /// Every frozen release, in tag order.
     /// @return The released suites.
     function releasedSuites() internal pure returns (DeploySuite[] memory) {
-        DeploySuite[] memory suites = new DeploySuite[](1);
+        DeploySuite[] memory suites = new DeploySuite[](2);
         suites[0] = DeploySuite({
             suite: "tofu-token-decimals@0_1_0",
             creationCode: TOFUTokenDecimals_0_1_0_CREATION_CODE,
@@ -43,6 +51,17 @@ library LibTOFUTokenDecimalsReleased {
             storedRuntimeCode: TOFUTokenDecimals_0_1_0_RUNTIME_CODE,
             artifactPath: "src/concrete/TOFUTokenDecimals.sol:TOFUTokenDecimals",
             dependencies: abi.decode(TOFUTokenDecimals_0_1_0_DEPENDENCIES, (DeployDependency[])),
+            mechanism: DeployMechanism.Zoltu,
+            mechanismData: ""
+        });
+        suites[1] = DeploySuite({
+            suite: "tofu-token-decimals@0_1_1",
+            creationCode: TOFUTokenDecimals_0_1_1_CREATION_CODE,
+            storedDeployedAddress: TOFUTokenDecimals_0_1_1_DEPLOYED_ADDRESS,
+            storedBytecodeHash: TOFUTokenDecimals_0_1_1_BYTECODE_HASH,
+            storedRuntimeCode: TOFUTokenDecimals_0_1_1_RUNTIME_CODE,
+            artifactPath: "src/concrete/TOFUTokenDecimals.sol:TOFUTokenDecimals",
+            dependencies: abi.decode(TOFUTokenDecimals_0_1_1_DEPENDENCIES, (DeployDependency[])),
             mechanism: DeployMechanism.Zoltu,
             mechanismData: ""
         });
