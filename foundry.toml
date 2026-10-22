@@ -36,14 +36,13 @@ cbor_metadata = false
 # `script/Build.sol` writes the generated candidate snapshot and the generated
 # libs under `src/`, reads the release version from this file when
 # `cutRelease()` runs, and splices this file's and `.env.example`'s network
-# blocks into `.staged-config/` for `script/build.sh` to install.
+# blocks into `.staged-config/` for rainix `install-staged-config` to install.
 # `TOFUTokenDecimalsDeploySnapshotTest`'s inherited frozen-record walk reads
 # `src/generated/` too, so tests need the same read access.
 fs_permissions = [
   { access = "read", path = "./foundry.toml" },
   { access = "read", path = "./.env.example" },
   { access = "read-write", path = "./.staged-config" },
-  { access = "read", path = "./script/build.sh" },
   { access = "read-write", path = "./src" },
 ]
 libs = ["dependencies"]
@@ -66,7 +65,7 @@ forge-std = "1.17.0"
 # `TOFUTokenDecimals` is nothing but a delegation into) and
 # `LibTOFUTokenDecimals` (the caller-side view of this repo's singleton).
 "rain-tofu-erc20-decimals" = "0.1.4"
-"rain-deploy" = "0.1.20"
+"rain-deploy" = "0.1.21"
 # `LibRainDeploySnapshot` — reached from `script/Build.sol` and the shipped
 # verify abstracts — emits the generated record via `LibCodeGen`/`LibFs`.
 "rain-sol-codegen" = "0.1.39"
