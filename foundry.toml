@@ -8,7 +8,7 @@
 # `rainix-static release-guard` and by `script/Build.sol`'s `cutRelease()`.
 [external.package]
 name = "rain-tofu-erc20-decimals-deploy"
-version = "0.1.0"
+version = "0.1.1"
 
 [profile.default]
 src = 'src'
