@@ -8,7 +8,7 @@
 # `rainix-static release-guard` and by `script/Build.sol`'s `cutRelease()`.
 [external.package]
 name = "rain-tofu-erc20-decimals-deploy"
-version = "0.1.2"
+version = "0.1.3"
 
 [profile.default]
 src = 'src'
@@ -36,14 +36,13 @@ cbor_metadata = false
 # `script/Build.sol` writes the generated candidate snapshot and the generated
 # libs under `src/`, reads the release version from this file when
 # `cutRelease()` runs, and splices this file's and `.env.example`'s network
-# blocks into `.staged-config/` for `script/build.sh` to install.
+# blocks into `.staged-config/` for rainix `install-staged-config` to install.
 # `TOFUTokenDecimalsDeploySnapshotTest`'s inherited frozen-record walk reads
 # `src/generated/` too, so tests need the same read access.
 fs_permissions = [
   { access = "read", path = "./foundry.toml" },
   { access = "read", path = "./.env.example" },
   { access = "read-write", path = "./.staged-config" },
-  { access = "read", path = "./script/build.sh" },
   { access = "read-write", path = "./src" },
 ]
 libs = ["dependencies"]
@@ -66,7 +65,7 @@ forge-std = "1.17.0"
 # `TOFUTokenDecimals` is nothing but a delegation into) and
 # `LibTOFUTokenDecimals` (the caller-side view of this repo's singleton).
 "rain-tofu-erc20-decimals" = "0.1.4"
-"rain-deploy" = "0.1.20"
+"rain-deploy" = "0.1.22"
 # `LibRainDeploySnapshot` — reached from `script/Build.sol` and the shipped
 # verify abstracts — emits the generated record via `LibCodeGen`/`LibFs`.
 "rain-sol-codegen" = "0.1.39"
@@ -75,9 +74,9 @@ forge-std = "1.17.0"
 "rain-extrospection" = "0.1.14"
 # `LibBytes`, which `LibExtrospectBytecode` resolves through.
 "rain-solmem" = "0.1.28"
-# `ICloneableFactoryV4`/`V5` and `LibICloneableFactoryV5`, which rain-deploy's
+# `ICloneableFactoryV6` and `LibICloneableFactoryV5`, which rain-deploy's
 # mechanism libs import at this exact version.
-"rain-factory" = "0.2.4"
+"rain-factory" = "0.2.5"
 # `IBeacon`, `IERC5313`, `Ownable2Step` and `UpgradeableBeacon`, which
 # rain-deploy's beacon libs and verify base import at this exact version.
 "@openzeppelin-contracts" = "5.7.0"
