@@ -65,7 +65,7 @@ forge-std = "1.17.0"
 # `TOFUTokenDecimals` is nothing but a delegation into) and
 # `LibTOFUTokenDecimals` (the caller-side view of this repo's singleton).
 "rain-tofu-erc20-decimals" = "0.1.4"
-"rain-deploy" = "0.1.22"
+"rain-deploy" = "0.1.25"
 # `LibRainDeploySnapshot` — reached from `script/Build.sol` and the shipped
 # verify abstracts — emits the generated record via `LibCodeGen`/`LibFs`.
 "rain-sol-codegen" = "0.1.39"
