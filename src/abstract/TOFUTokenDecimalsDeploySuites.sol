@@ -8,7 +8,7 @@ import {
     DeployMechanism,
     DeploySuite,
     RainDeploySuitesBase
-} from "rain-deploy-0.1.26/src/abstract/RainDeploySuitesBase.sol";
+} from "rain-deploy-0.1.27/src/abstract/RainDeploySuitesBase.sol";
 import {
     CREATION_CODE as TOFU_TOKEN_DECIMALS_CREATION_CODE_CANDIDATE,
     RUNTIME_CODE as TOFU_TOKEN_DECIMALS_RUNTIME_CODE_CANDIDATE
