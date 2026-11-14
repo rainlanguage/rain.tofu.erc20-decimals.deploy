@@ -3,11 +3,11 @@
 pragma solidity =0.8.25;
 
 import {Test} from "forge-std-1.17.0/src/Test.sol";
-import {LibRainDeploy} from "rain-deploy-0.1.26/src/lib/LibRainDeploy.sol";
-import {LibTOFUTokenDecimals} from "rain-tofu-erc20-decimals-0.1.4/src/lib/LibTOFUTokenDecimals.sol";
+import {LibRainDeploy} from "rain-deploy-0.1.32/src/lib/LibRainDeploy.sol";
+import {LibTOFUTokenDecimals} from "rain-tofu-erc20-decimals-0.1.5/src/lib/LibTOFUTokenDecimals.sol";
 import {TOFUTokenDecimals} from "src/concrete/TOFUTokenDecimals.sol";
-import {TOFUOutcome} from "rain-tofu-erc20-decimals-0.1.4/src/lib/LibTOFUTokenDecimalsImplementation.sol";
-import {ITOFUTokenDecimals} from "rain-tofu-erc20-decimals-0.1.4/src/interface/ITOFUTokenDecimals.sol";
+import {TOFUOutcome} from "rain-tofu-erc20-decimals-0.1.5/src/lib/LibTOFUTokenDecimalsImplementation.sol";
+import {ITOFUTokenDecimals} from "rain-tofu-erc20-decimals-0.1.5/src/interface/ITOFUTokenDecimals.sol";
 import {IERC20} from "forge-std-1.17.0/src/interfaces/IERC20.sol";
 
 contract LibTOFUTokenDecimalsSafeDecimalsForTokenTest is Test {

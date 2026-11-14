@@ -64,21 +64,21 @@ forge-std = "1.17.0"
 # `ITOFUTokenDecimals`, `LibTOFUTokenDecimalsImplementation` (the TOFU logic
 # `TOFUTokenDecimals` is nothing but a delegation into) and
 # `LibTOFUTokenDecimals` (the caller-side view of this repo's singleton).
-"rain-tofu-erc20-decimals" = "0.1.4"
-"rain-deploy" = "0.1.26"
+"rain-tofu-erc20-decimals" = "0.1.5"
+"rain-deploy" = "0.1.32"
 # `IMetaV1_2`, which rain-deploy's V4 registry interfaces import at this exact version.
-"rain-metadata" = "0.1.43"
+"rain-metadata" = "0.1.46"
 # `LibRainDeploySnapshot` — reached from `script/Build.sol` and the shipped
 # verify abstracts — emits the generated record via `LibCodeGen`/`LibFs`.
 "rain-sol-codegen" = "0.1.39"
 # `LibExtrospectBytecode` / `LibExtrospectMetamorphic` / `EVMOpcodes`, which the
 # bytecode-shape tests read the singleton's runtime code with.
-"rain-extrospection" = "0.1.16"
+"rain-extrospection" = "0.1.17"
 # `LibBytes`, which `LibExtrospectBytecode` resolves through.
 "rain-solmem" = "0.1.28"
 # `ICloneableFactoryV6` and `LibICloneableFactoryV5`, which rain-deploy's
 # mechanism libs import at this exact version.
-"rain-factory" = "0.2.5"
+"rain-factory" = "0.2.12"
 # `IBeacon`, `IERC5313`, `Ownable2Step` and `UpgradeableBeacon`, which
 # rain-deploy's beacon libs and verify base import at this exact version.
 "@openzeppelin-contracts" = "5.7.0"
