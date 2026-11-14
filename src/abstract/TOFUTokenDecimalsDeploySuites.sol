@@ -5,7 +5,6 @@ pragma solidity ^0.8.25;
 import {
     DeployCandidate,
     DeployDependency,
-    DeployMechanism,
     DeploySuite,
     RainDeploySuitesBase
 } from "rain-deploy-0.1.32/src/abstract/RainDeploySuitesBase.sol";
@@ -13,6 +12,7 @@ import {
     CREATION_CODE as TOFU_TOKEN_DECIMALS_CREATION_CODE_CANDIDATE,
     RUNTIME_CODE as TOFU_TOKEN_DECIMALS_RUNTIME_CODE_CANDIDATE
 } from "../generated/candidate/TOFUTokenDecimals.sol";
+import {LibRainDeployZoltuMechanism} from "rain-deploy-0.1.32/src/lib/LibRainDeployZoltuMechanism.sol";
 import {LibTOFUTokenDecimalsDeploy} from "../lib/LibTOFUTokenDecimalsDeploy.sol";
 import {LibReleasedSuites} from "../lib/LibReleasedSuites.sol";
 
@@ -58,8 +58,9 @@ abstract contract TOFUTokenDecimalsDeploySuites is RainDeploySuitesBase {
                 storedRuntimeCode: TOFU_TOKEN_DECIMALS_RUNTIME_CODE_CANDIDATE,
                 artifactPath: "src/concrete/TOFUTokenDecimals.sol:TOFUTokenDecimals",
                 dependencies: new DeployDependency[](0),
-                mechanism: DeployMechanism.Zoltu,
-                mechanismData: ""
+                mechanismData: LibRainDeployZoltuMechanism.mechanismData(),
+                networks: new string[](0),
+                describedByMeta: ""
             }),
             unanchorableReason: ""
         });
