@@ -71,6 +71,8 @@ forge-std = "1.17.0"
 # `LibRainDeploySnapshot` — reached from `script/Build.sol` and the shipped
 # verify abstracts — emits the generated record via `LibCodeGen`/`LibFs`.
 "rain-sol-codegen" = "0.1.39"
+# `LibAffix`, which `LibRainDeploySnapshot` imports at this exact version.
+"rain-string" = "0.3.10"
 # `LibExtrospectBytecode` / `LibExtrospectMetamorphic` / `EVMOpcodes`, which the
 # bytecode-shape tests read the singleton's runtime code with.
 "rain-extrospection" = "0.1.19"
