@@ -65,7 +65,7 @@ forge-std = "1.17.0"
 # `TOFUTokenDecimals` is nothing but a delegation into) and
 # `LibTOFUTokenDecimals` (the caller-side view of this repo's singleton).
 "rain-tofu-erc20-decimals" = "0.1.5"
-"rain-deploy" = "0.1.34"
+"rain-deploy" = "0.1.35"
 # `IMetaV1_2`, which rain-deploy's V4 registry interfaces import at this exact version.
 "rain-metadata" = "0.1.46"
 # `LibRainDeploySnapshot` — reached from `script/Build.sol` and the shipped
@@ -75,7 +75,7 @@ forge-std = "1.17.0"
 "rain-string" = "0.3.11"
 # `LibExtrospectBytecode` / `LibExtrospectMetamorphic` / `EVMOpcodes`, which the
 # bytecode-shape tests read the singleton's runtime code with.
-"rain-extrospection" = "0.1.19"
+"rain-extrospection" = "0.1.30"
 # `LibBytes`, which `LibExtrospectBytecode` resolves through.
 "rain-solmem" = "0.1.28"
 # `ICloneableFactoryV6` and `LibICloneableFactoryV5`, which rain-deploy's
