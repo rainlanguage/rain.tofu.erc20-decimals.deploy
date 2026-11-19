@@ -4,8 +4,11 @@ name: Manual sol verify
 # only for what its own run broadcast, and the Zoltu deploy is idempotent, so
 # every run after the first logs "Code already exists at expected address,
 # skipping deployment" on every network, has no transaction to verify, and goes
-# green having verified nothing. The singleton now has code on all seven
-# networks, so that is every network, forever. This is the only path left.
+# green having verified nothing. The singleton is on every network it is
+# deployed to, so that is every network, forever. This is the only path left.
+#
+# It verifies on every `[etherscan]` entry in `foundry.toml`, by chain id, so a
+# network the deploy declares, 0G included, is one it verifies on.
 #
 # Never broadcasts and takes no deploy key.
 on:
@@ -20,10 +23,4 @@ jobs:
       # value covers every network: the deploy is CREATE2 via Zoltu, so the
       # address is the same everywhere.
       address: '0x200e12D10bb0c5E4a17e7018f0F1161919bb9389'
-      # FOUNDRY's chain names, one per `[rpc_endpoints]` alias, NOT the aliases
-      # themselves — `forge verify-contract --chain` rejects `ethereum`,
-      # `hyperevm` and `base_sepolia` outright, and their chains are named
-      # `mainnet`, `hyperliquid` and `base-sepolia`. The `[etherscan]` entry
-      # each one resolves to is matched on chain id, not on this name.
-      networks: arbitrum base base-sepolia mainnet flare hyperliquid polygon
     secrets: inherit

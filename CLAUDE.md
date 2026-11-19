@@ -56,7 +56,7 @@ is not recoverable by redeploying.
   Re-dispatching the deploy to repair a failed verification verifies nothing and
   goes green doing it: `--verify` submits only what that run broadcast, and a
   Zoltu deploy onto a network that already has the singleton broadcasts nothing.
-  `Manual sol verify` takes FOUNDRY chain names (`mainnet`, `hyperliquid`,
-  `base-sepolia`), which are not the `[rpc_endpoints]` aliases.
+  `Manual sol verify` takes no network list: rainix verifies on every
+  `[etherscan]` entry in `foundry.toml`, by chain id.
 - A manual `sol-v<version>` tag is the sole release trigger. The release
   mechanics live in rainix's `rainix-tag-release` reusable, not here.

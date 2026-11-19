@@ -9,6 +9,7 @@ on:
         options:
           - tofu-token-decimals
           - tofu-token-decimals@0_1_0
+          - tofu-token-decimals@0_1_9
 jobs:
   deploy:
     uses: rainlanguage/rainix/.github/workflows/rainix-manual-sol-artifacts.yaml@main
